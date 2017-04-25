@@ -24,11 +24,8 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `username` varchar(50) NOT NULL DEFAULT '',
   `password` varchar(7) DEFAULT NULL,
-<<<<<<< HEAD
   `ru_email` varchar(7) DEFAULT NULL,
   `name` varchar(7) DEFAULT NULL,
-=======
->>>>>>> 40eb5b2d69ce6d30902cbf2c8d4505210b667d6b
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
