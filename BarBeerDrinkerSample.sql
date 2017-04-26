@@ -160,7 +160,7 @@ CREATE TABLE `messages` (
   `to` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`from`, `to`, `message`),
   FOREIGN KEY (`from`) REFERENCES `users` (`username`),
-  FOREIGN KEY (`to`) REFERENCES `users` (`to`)
+  FOREIGN KEY (`to`) REFERENCES `users` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
