@@ -116,7 +116,7 @@ CREATE TABLE `rides` (
   `end`datetime DEFAULT NULL,
   `passenger` varchar(50) DEFAULT NULL,
   `driver` varchar(50) DEFAULT NULL,
-  `isCompeted` boolean DEFAULT FALSE,
+  `isCompleted` boolean DEFAULT FALSE,
   `driverRating` varchar(50) DEFAULT NULL,
   `driverComment` varchar(50) DEFAULT NULL,
   `passengerRating` varchar(50) DEFAULT NULL,
