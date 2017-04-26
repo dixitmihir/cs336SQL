@@ -24,8 +24,8 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `username` varchar(50) NOT NULL DEFAULT '',
   `password` varchar(7) DEFAULT NULL,
-  `ru_email` varchar(7) DEFAULT NULL,
-  `name` varchar(7) DEFAULT NULL,
+  `ru_email` varchar(50) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
   `phone`varchar(50) DEFAULT NULL,
   `isAdmin` boolean NOT NULL DEFAULT FALSE,
   `isSysStaff` boolean NOT NULL DEFAULT FALSE,
@@ -35,7 +35,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('jake','jake123');
+INSERT INTO `users` VALUES ('jake','jake123','mihir.dixit@rutgers.edu', 'Mihir Dixit', '732-439-7787', TRUE, TRUE);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
