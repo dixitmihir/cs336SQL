@@ -29,13 +29,14 @@ CREATE TABLE `users` (
   `phone`varchar(50) DEFAULT NULL,
   `isAdmin` boolean NOT NULL DEFAULT FALSE,
   `isSysStaff` boolean NOT NULL DEFAULT FALSE,
+  `isDisabled` boolean NOT NULL DEFAULT FALSE,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('jake','jake123','mihir.dixit@rutgers.edu', 'Mihir Dixit', '732-439-7787', TRUE, TRUE);
+INSERT INTO `users` VALUES ('jake','jake123','mihir.dixit@rutgers.edu', 'Mihir Dixit', '732-439-7787', TRUE, TRUE, FALSE);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
