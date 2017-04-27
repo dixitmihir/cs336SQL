@@ -61,79 +61,63 @@ LOCK TABLES `cars` WRITE;
 UNLOCK TABLES;
 
 
-DROP TABLE IF EXISTS `rideOffers`;
+DROP TABLE IF EXISTS `offers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `rideOffers` (
+CREATE TABLE `offers` (
   `departure` varchar(50) DEFAULT NULL,
   `destination` varchar(50) DEFAULT NULL,
-  `availableStarting`datetime DEFAULT NULL,
-  `availableUntil`datetime DEFAULT NULL,
+  `date` varchar(50) DEFAULT NULL,
+  `startTime` varchar(50) DEFAULT NULL,
+   `endTime` varchar(50) DEFAULT NULL,
   `isRecurring` boolean DEFAULT FALSE,
   `car` varchar(50) DEFAULT NULL,
   `driver` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`driver`,`availableStarting`, `availableUntil`),
+  PRIMARY KEY (`driver`,`date`, `startTime`, `endTime`),
   FOREIGN KEY (`car`) REFERENCES `cars` (`licenseplate`),
   FOREIGN KEY (`driver`) REFERENCES `users` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-LOCK TABLES `rideOffers` WRITE;
-/*!40000 ALTER TABLE `rideOffers` DISABLE KEYS */;
-/*!40000 ALTER TABLE `rideOffers` ENABLE KEYS */;
+LOCK TABLES `offers` WRITE;
+/*!40000 ALTER TABLE `offers` DISABLE KEYS */;
+/*!40000 ALTER TABLE `offers` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
-DROP TABLE IF EXISTS `rideRequests`;
+DROP TABLE IF EXISTS `requests`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `rideRequests` (
+CREATE TABLE `requests` (
   `departure` varchar(50) DEFAULT NULL,
   `destination` varchar(50) DEFAULT NULL,
-  `availableStarting`datetime DEFAULT NULL,
-  `availableUntil`datetime DEFAULT NULL,
+  `date` varchar(50) DEFAULT NULL,
+  `timeFrom` varchar(50) DEFAULT NULL,
+  `timeTo` varchar(50) DEFAULT NULL,
   `isRecurring` boolean DEFAULT FALSE,
   `passenger` varchar(50) DEFAULT NULL,
   `accepted` boolean DEFAULT FALSE,
-  PRIMARY KEY (`passenger`,`availableStarting`, `availableUntil`),
-  FOREIGN KEY (`passenger`) REFERENCES `users` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
-LOCK TABLES `rideRequests` WRITE;
-/*!40000 ALTER TABLE `rideRequests` DISABLE KEYS */;
-/*!40000 ALTER TABLE `rideRequests` ENABLE KEYS */;
-UNLOCK TABLES;
-
-
-DROP TABLE IF EXISTS `rides`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `rides` (
-  `departure` varchar(50) DEFAULT NULL,
-  `destination` varchar(50) DEFAULT NULL,
-  `start`datetime DEFAULT NULL,
-  `end`datetime DEFAULT NULL,
-  `passenger` varchar(50) DEFAULT NULL,
+  `timeStart` varchar(50) DEFAULT NULL,
+  `timeEnd` varchar(50) DEFAULT NULL,
   `driver` varchar(50) DEFAULT NULL,
-  `isCompleted` boolean DEFAULT FALSE,
+  `car` varchar(50) DEFAULT NULL,
   `driverRating` varchar(50) DEFAULT NULL,
   `driverComment` varchar(50) DEFAULT NULL,
   `passengerRating` varchar(50) DEFAULT NULL,
   `passengerComment` varchar(50) DEFAULT NULL,
   `ad` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`passenger`,`start`, `end`),
+  PRIMARY KEY (`passenger`,`date`, `startTime`, `endTime` ),
   FOREIGN KEY (`passenger`) REFERENCES `users` (`username`),
   FOREIGN KEY (`driver`) REFERENCES `users` (`username`),
+  FOREIGN KEY (`car`) REFERENCES `cars` (`licenseplate`),
   FOREIGN KEY (`ad`) REFERENCES `ads` (`link`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-LOCK TABLES `rides` WRITE;
-/*!40000 ALTER TABLE `rides` DISABLE KEYS */;
-/*!40000 ALTER TABLE `rides` ENABLE KEYS */;
+LOCK TABLES `requests` WRITE;
+/*!40000 ALTER TABLE `requests` DISABLE KEYS */;
+/*!40000 ALTER TABLE `requests` ENABLE KEYS */;
 UNLOCK TABLES;
-
 
 DROP TABLE IF EXISTS `ads`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
