@@ -36,7 +36,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('jake','jake123','mihir.dixit@rutgers.edu', 'Mihir Dixit', '732-439-7787', TRUE, TRUE, FALSE);
+INSERT INTO `users` VALUES ('jake','jake123','mihir.dixit@rutgers.edu', 'Mihir Dixit', '732-439-7787', TRUE, FALSE, FALSE);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -141,7 +141,7 @@ DROP TABLE IF EXISTS `ads`;
 CREATE TABLE `ads` (
   `link` varchar(50) DEFAULT NULL,
   `views` mediumint(9) DEFAULT 0,
-  `driverCommission` mediumint(9) DEFAULT 0,
+  `driverCommission` float DEFAULT 0,
   PRIMARY KEY (`link`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
