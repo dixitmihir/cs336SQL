@@ -158,13 +158,11 @@ DROP TABLE IF EXISTS `leaderboard`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `leaderboard` (
-  `driver` varchar(50) DEFAULT NULL,
+  `driver` varchar(50) NOT NULL DEFAULT '',
   `rides` integer DEFAULT 1,
   `earnings` float DEFAULT 0,
-  `` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`driver`),
-  FOREIGN KEY (`driver`) REFERENCES `users` (`username`),
-  FOREIGN KEY (`earnings`) REFERENCES `ads` (`driverCommission`)
+  PRIMARY KEY (`driver`, `rides`),
+  FOREIGN KEY (`driver`) REFERENCES `users` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
