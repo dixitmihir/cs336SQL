@@ -154,6 +154,25 @@ LOCK TABLES `messages` WRITE;
 UNLOCK TABLES;
 
 
+DROP TABLE IF EXISTS `leaderboard`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `leaderboard` (
+  `driver` varchar(50) DEFAULT NULL,
+  `rides` integer DEFAULT 1,
+  `earnings` float DEFAULT 0,
+  `` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`driver`),
+  FOREIGN KEY (`driver`) REFERENCES `users` (`username`),
+  FOREIGN KEY (`earnings`) REFERENCES `ads` (`driverCommission`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+LOCK TABLES `leaderboard` WRITE;
+/*!40000 ALTER TABLE `leaderboard` DISABLE KEYS */;
+/*!40000 ALTER TABLE `leaderboard` ENABLE KEYS */;
+UNLOCK TABLES;
+
 
 
 
